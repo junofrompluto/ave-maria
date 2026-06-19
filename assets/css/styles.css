@@ -229,16 +229,31 @@ h2.display, .display {
   .themes { grid-template-columns: 1fr; }
   .beat, .beat--rev { grid-template-columns: 1fr; direction: ltr; gap: 1.2rem; }
   .beat__text { order: 2; }
-  .scene__veil { background: linear-gradient(0deg, var(--bg) 2%, rgba(8,8,9,0.55) 45%, rgba(8,8,9,0.8) 100%); }
+  .scene__veil { background: linear-gradient(0deg, var(--bg) 0%, rgba(8,8,9,0.72) 36%, rgba(8,8,9,0.9) 100%); }
+  .scene__content .lead { text-shadow: 0 2px 18px rgba(0,0,0,0.7); }
 }
-@media (max-width: 640px) {
+
+/* Portrait phones/tablets: show the FULL title-card frame (no side-crop of
+   the baked "AVE MARIA" title) by letting the cinemagraph flow at its
+   natural 2:1 ratio instead of cover-cropping a tall viewport. */
+@media (orientation: portrait) and (max-width: 900px) {
+  .hero { height: auto; min-height: 0; padding-top: 70px; background: var(--bg); overflow: visible; }
+  .hero__media { position: relative; inset: auto; height: auto; }
+  .hero__media video { height: auto; }
+  .hero__fade { display: none; }
+  .hero__scroll { position: static; transform: none; display: block; text-align: center; padding: 1.1rem 0 0.3rem; opacity: 0.7; }
+}
+@media (max-width: 820px) {
   .nav__links {
     position: fixed; inset: 70px 0 auto 0; flex-direction: column; gap: 1.4rem; align-items: flex-start;
     background: rgba(8,8,9,0.97); backdrop-filter: blur(14px); padding: 1.6rem 22px 2rem; border-bottom: 1px solid var(--line);
     transform: translateY(-120%); transition: transform 0.4s var(--ease); height: auto;
   }
   .nav__links.is-open { transform: none; }
+  .nav__cta { align-self: flex-start; }
   .nav__burger { display: flex; }
+}
+@media (max-width: 640px) {
   .cast { grid-template-columns: 1fr; max-width: 380px; margin-inline: auto; }
   .form__row { grid-template-columns: 1fr; }
   .footer__inner { flex-direction: column; }
