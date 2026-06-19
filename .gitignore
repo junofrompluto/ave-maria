@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Netlify / build artifacts
+.netlify/
+dist/
+.cache/
+
+# Source media archives (keep the repo lean — optimized assets live in assets/)
+*.zip
